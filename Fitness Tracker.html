@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #9EDF9C, #9EDF9C);
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #E0FBE2;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        h1 {
+            text-align: center;
+            color: #0A6847;
+            font-weight: bold;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #E8ECD7;
+            margin: 0 5px;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+        .tab:hover {
+            background-color: #9EDF9C;
+            color: white;
+            transform: scale(1.05);
+        }
+        .tab.active {
+            background-color: #9EDF9C;
+            color: white;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .accordion h3 {
+            cursor: pointer;
+            background: #9EDF9C;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .accordion h3:hover {
+            background: #C2FFC7;
+        }
+        .accordion-content {
+            display: none;
+            padding: 12px;
+            background: #BDE8CA;
+            border-left: 5px solid #9EDF9C;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .accordion-content a {
+            color: #0A6847;
+            font-weight: bold;
+        }
+        .nutrition-card {
+            background: #BDE8CA;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+        .nutrition-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .nutrition-card h3 {
+            background: #9EDF9C;
+            color: #0A6847;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 20px;
+            margin-top: 0;
+        }
+        .nutrition-card p {
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+            font-weight: bold;
+        }
+        .nutrition-card ul {
+            padding-left: 20px;
+        }
+        .nutrition-card li {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Fitness Tracker</h1>
+
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('workouts')">Workouts</button>
+        <button class="tab" onclick="switchTab('nutrition')">Nutrition</button>
+    </div>
+
+    <div id="workouts" class="tab-content active">
+        <div class="accordion">
+            <h3 onclick="toggleAccordion(this)">Jump Rope</h3>
+            <div class="accordion-content">
+                <p>Improves cardiovascular endurance and coordination.</p>
+                <ul>
+                    <li>Hold the rope handles and keep your elbows close.</li>
+                    <li>Jump lightly as the rope swings under your feet.</li>
+                    <li>Maintain a steady rhythm.</li>
+                </ul>
+                <a href="https://www.youtube.com/watch?v=1BZM2Vre5oc" target="_blank">Watch Tutorial</a>
+            </div>
+        </div>
+        <div class="accordion">
+            <h3 onclick="toggleAccordion(this)">Deadlifts</h3>
+            <div class="accordion-content">
+                <p>Builds strength in the lower back, hamstrings, and glutes.</p>
+                <ul>
+                    <li>Stand with feet hip-width apart.</li>
+                    <li>Grip the barbell and lift by extending your hips and knees.</li>
+                    <li>Lower the barbell back down in a controlled motion.</li>
+                </ul>
+                <a href="https://www.youtube.com/watch?v=op9kVnSso6Q" target="_blank">Watch Tutorial</a>
+            </div>
+        </div>
+        <div class="accordion">
+            <h3 onclick="toggleAccordion(this)">Pull-ups</h3>
+            <div class="accordion-content">
+                <p>Great for building upper body and grip strength.</p>
+                <ul>
+                    <li>Grab the pull-up bar with an overhand grip.</li>
+                    <li>Pull yourself up until your chin is above the bar.</li>
+                    <li>Lower yourself back down with control.</li>
+                </ul>
+                <a href="https://www.youtube.com/watch?v=eGo4IYlbE5g" target="_blank">Watch Tutorial</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="nutrition" class="tab-content">
+        <div class="nutrition-card">
+            <h3>Breakfast: Avocado Toast with Eggs</h3>
+            <p>Healthy fats, protein, and fiber for a balanced start.</p>
+            <ul>
+                <li><strong>Avocado:</strong> Rich in monounsaturated fats that support heart health.</li>
+                <li><strong>Whole Grain Bread:</strong>Provides complex carbohydrates and fiber for sustained energy.</li>
+                <li><strong>Eggs:</strong> High in protein, essential amino acids, and B vitamins.</li>
+            </ul>
+        </div>
+
+        <div class="nutrition-card">
+            <h3>Lunch: Quinoa & Chickpea Salad</h3>
+            <p>A plant-based meal packed with protein, fiber, and essential nutrients.</p>
+            <ul>
+                <li><strong>Quinoa:</strong>A complete protein source with all nine essential amino acids.</li>
+                <li><strong>Chickpeas:</strong>High in protein and fiber, promoting digestion and satiety.</li>
+                <li><strong>Vegetables (tomatoes, cucumbers, etc.):</strong>Provide vitamins, minerals, and antioxidants.</li>
+            </ul>
+        </div>   
+
+        <div class="nutrition-card">
+            <h3>Dinner: Grilled Steak with Sweet Potatoes</h3>
+            <p>A high-protein meal with complex carbohydrates and essential nutrients for muscle recovery.</p>
+            <ul>
+                <li><strong>Steak:</strong>Excellent source of protein, iron, and B vitamins for energy production.</li>
+                <li><strong>Sweet Potatoes:</strong>Rich in fiber, vitamins A and C, and slow-digesting carbs.</li>
+                <li><strong>Steamed Greens (spinach, broccoli, etc.):</strong>Packed with antioxidants and essential micronutrients.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+        document.getElementById(tabName).classList.add('active');
+
+        document.querySelectorAll('.tab').forEach(button => button.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    function toggleAccordion(header) {
+        let content = header.nextElementSibling;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            document.querySelectorAll('.accordion-content').forEach(item => item.style.display = 'none');
+            content.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
